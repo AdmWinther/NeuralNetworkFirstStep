@@ -10,14 +10,21 @@ import java.util.Map;
 public class AI implements IAI {
     private final int[] layers;
     private final Map<NodeCoordinate, Node> nodes;
+    private String name;
 
     public AI(int[] layers, Map<NodeCoordinate, Node> nodes){
         this.layers = layers;
         this.nodes = nodes;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
     @Override
     public void train(IData[] trainingData) {
+
+        //TODO: These pareameters must be transferred to application config.properties
         float learningRate = 0.05f; // This could be parameterized
         int epochs = 10; // This could be parameterized
         

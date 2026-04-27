@@ -6,12 +6,17 @@ import org.example.Model.Data.Data;
 import org.example.Model.Interfaces.IAI;
 import org.example.Model.Data.IData;
 import org.example.View.AIConsoleView;
+import org.example.View.IO.IUserInterface;
+import org.example.View.IO.TerminalUserInterface;
 
 public class App 
 {
     public static void main()
     {
-        int[] layers = new int[]{784,128,64,32,10};
+
+
+
+        int[] layers = new int[]{784,128,10};
         AiFactory factory = new AiFactory(layers);
         IAI myAIModel = factory.setInitialBias(-0.5f).build();
 
