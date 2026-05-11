@@ -1,6 +1,7 @@
 package org.example.Model.Tools;
 
 import org.example.Model.ActivationFunction.IActivationFunction;
+import org.example.Model.Interfaces.IJsonableNode;
 
 import java.util.ArrayList;
 import java.util.List;

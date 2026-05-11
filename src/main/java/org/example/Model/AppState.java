@@ -2,59 +2,60 @@ package org.example.Model;
 
 import org.example.Model.Data.IData;
 import org.example.Model.Interfaces.IAI;
+import org.example.Model.Interfaces.IAppState;
 
-public class AppState {
+public class AppState implements IAppState {
     private IAI ai;
-    private boolean isTrained;
     private IData[] trainingData;
     private boolean continueRunning = true;
 
 
     public AppState() {
         this.ai = null;
-        this.isTrained = false;
     }
 
+    @Override
     public IAI getAI() {
         return this.ai;
     }
 
+    @Override
     public void setAi(IAI ai) {
         System.out.println("Setting AI");
         this.ai = ai;
-        this.isTrained =  false;
     }
 
-    public boolean isTrained() {
-        return isTrained;
-    }
-
+    @Override
     public void setAI(IAI ai) {
         this.ai = ai;
-        this.isTrained = false;
     }
 
+    @Override
     public void train(IData[] trainingData) {
         ai.train(trainingData);
-        isTrained = true;
     }
 
+    @Override
     public boolean continueRunning() {
         return this.continueRunning;
     }
 
+    @Override
     public void stopRunning() {
         this.continueRunning = false;
     }
 
+    @Override
     public boolean isTrainingDataSet() {
         return !(trainingData == null);
     }
 
+    @Override
     public void setTrainingData(IData[] iData) {
         this.trainingData = iData;
     }
 
+    @Override
     public IData[] getTrainingData() {
         return this.trainingData;
     }

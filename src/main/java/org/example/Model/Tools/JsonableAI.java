@@ -17,11 +17,13 @@ import java.util.Map;
 public class JsonableAI {
     private String name;
     private int[] layers;
+    private boolean isTrained;
     private List<JsonableNode> jsonableNodes;
 
     public JsonableAI(IAI ai) {
         this.name = ai.getName();
         this.layers = ai.getLayers();
+        this.isTrained = ai.isTrained();
         this.jsonableNodes  = new ArrayList<JsonableNode>();
         for (int i = 0; i < layers.length; i++) {
             for (int j = 0; j < layers[i]; j++) {
@@ -82,8 +84,8 @@ public class JsonableAI {
 
             nodes.put(node.getCoordinate(), node);
         }
-        IAI ai = new AI(layers, nodes);
-        ai.setName(name);
-        return ai;
+
+        return new AI(layers, nodes, name, isTrained);
+
     }
 }

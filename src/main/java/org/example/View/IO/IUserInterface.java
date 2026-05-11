@@ -10,5 +10,5 @@ public interface IUserInterface {
 
     boolean getYesNo(String prompt);
 
-    String getStringWithDefault(String s, String name);
+    String getStringWithDefaultAcceptEmpty(String s, String name);
 }

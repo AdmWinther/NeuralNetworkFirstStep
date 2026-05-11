@@ -21,12 +21,13 @@ public class LoadModelController implements IMenuController {
     @Override
     public void execute(AppState appState) {
         //Get the address for the model
-        String address = userInterface.getString("What is the address of the model?");
+        String fileAddress = userInterface.getString("What is the address of the model?");
+        if(!fileAddress.endsWith(".json")) fileAddress = fileAddress + ".json";
 
         //Read the file
         StringBuilder stringBuilder = new StringBuilder();
         try {
-            stringBuilder.append(java.nio.file.Files.readString(java.nio.file.Paths.get(address)));
+            stringBuilder.append(java.nio.file.Files.readString(java.nio.file.Paths.get(fileAddress)));
 
         } catch (IOException e){
             throw new RuntimeException("Error reading file" + e.getMessage());

@@ -1,8 +1,9 @@
-package org.example.Model.Tools;
+package org.example.Model.Interfaces;
 
 import org.example.Model.ActivationFunction.IActivationFunction;
+import org.example.Model.Tools.JsonableConnection;
+import org.example.Model.Tools.JsonableNode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IJsonableNode {

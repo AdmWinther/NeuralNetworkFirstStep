@@ -11,4 +11,6 @@ public interface IAI {
     public int[] getLayers();
     public String getName();
     public void setName(String name);
+    public boolean isTrained();
+    public void setIsTrained(boolean trained);
 }

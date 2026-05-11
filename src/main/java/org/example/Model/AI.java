@@ -9,17 +9,24 @@ import java.util.Map;
 
 public class AI implements IAI {
     private final int[] layers;
+    private boolean isTrained;
     private final Map<NodeCoordinate, Node> nodes;
     private String name;
 
     public AI(int[] layers, Map<NodeCoordinate, Node> nodes){
         this.layers = layers;
         this.nodes = nodes;
+        this.isTrained = false;
     }
 
     public AI(int[] layers, Map<NodeCoordinate, Node> nodes, String name) {
         this(layers, nodes);
         this.name = name;
+    }
+
+    public AI(int[] layers, Map<NodeCoordinate, Node> nodes, String name, boolean isTrained) {
+        this(layers, nodes, name);
+        this.isTrained = isTrained;
     }
 
     // Getter for the nodes map, essential for deserialization re-wiring
@@ -29,7 +36,7 @@ public class AI implements IAI {
 
     @Override
     public void train(IData[] trainingData) {
-
+        this.isTrained = false;
         //TODO: These pareameters must be transferred to application config.properties
         float learningRate = 0.05f; // This could be parameterized
         int epochs = 10; // This could be parameterized
@@ -47,6 +54,7 @@ public class AI implements IAI {
             }
             System.out.println("Epoch " + epoch + " completed. Avg Loss: " + (totalLoss / trainingData.length));
         }
+        this.isTrained = true;
     }
 
     private float calculateLoss(int targetLabel) {
@@ -120,6 +128,9 @@ public class AI implements IAI {
 
     @Override
     public int classify(IData input) {
+        if(!isTrained){
+            throw new RuntimeException("Training not yet implemented");
+        }
         forwardPass(input);
         
         // Find the node with the maximum value in the output layer
@@ -198,4 +209,16 @@ public class AI implements IAI {
     public void setName(String name) {
         this.name= name;
     }
+
+    @Override
+    public boolean isTrained() {
+        return this.isTrained;
+    }
+
+    @Override
+    public void setIsTrained(boolean trained) {
+        this.isTrained= trained;
+    }
+
+
 }

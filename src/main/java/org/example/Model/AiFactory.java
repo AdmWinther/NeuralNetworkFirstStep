@@ -42,8 +42,8 @@ public class AiFactory implements IClassifierAIFactory {
         for(int i = 0; i < layers.length; i++){
             for(int j = 0; j < layers[i]; j++){
                 // Use the factory here, and pass the interface to the node
-                IActivationFunction activationFunction = activationFunctionFactory.build(EnumActivationFunction.TANH);
-                
+                IActivationFunction activationFunction = activationFunctionFactory.build(EnumActivationFunction.ReLU);
+
                 Node node = new Node(new NodeCoordinate(i, j), initialNodesBias, activationFunction);
 
                 if (i == 0) {

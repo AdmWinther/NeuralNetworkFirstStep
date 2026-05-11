@@ -21,10 +21,10 @@ public class SaveModelController implements IMenuController {
         userInterface.output("The model must be saved.");
 
         // ask if they need to change the model name?
-        appState.getAI().setName(userInterface.getStringWithDefault("What should be the model name?", appState.getAI().getName()));
+        appState.getAI().setName(userInterface.getStringWithDefaultAcceptEmpty("What should be the model name?", appState.getAI().getName()));
 
         // Ask the file name they want use for saving the model
-        String whereToSave = userInterface.getStringWithDefault("What should be the model where?", "./");
+        String whereToSave = userInterface.getStringWithDefaultAcceptEmpty("What should be the model where?", "./");
 
         // Make a JSON of the model
         StringBuilder stringBuilder = new StringBuilder();

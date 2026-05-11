@@ -1,4 +1,4 @@
-package org.example.Model.Tools;
+package org.example.Model.Interfaces;
 
 public interface IJsonableConnection {
 }

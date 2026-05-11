@@ -1,21 +1,14 @@
 package org.example.Model.Tools;
 
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import org.example.Model.ActivationFunction.*;
-import org.example.Model.Interfaces.IAI;
+import org.example.Model.Interfaces.IAiJsonAdapter;
 import org.example.Model.Interfaces.IConnection;
 import org.example.Model.Interfaces.INode;
 import org.example.Model.Connection;
 import org.example.Model.Node;
 import org.example.Model.NodeCoordinate;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.Map;
 
 public class AiJsonAdapter implements IAiJsonAdapter {
 

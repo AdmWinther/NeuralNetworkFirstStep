@@ -55,7 +55,7 @@ public class TerminalUserInterface implements IUserInterface {
     }
 
     @Override
-    public String getStringWithDefault(String s, String defaultValue) {
+    public String getStringWithDefaultAcceptEmpty(String s, String defaultValue) {
         String prompt = s + " (" + defaultValue + ")";
         String newString = this.getStringOrEmpty(prompt);
         if("".equalsIgnoreCase(newString)){
