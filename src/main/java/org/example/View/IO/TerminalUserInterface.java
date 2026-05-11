@@ -16,6 +16,13 @@ public class TerminalUserInterface implements IUserInterface {
     }
 
     @Override
+    public String getStringOrEmpty(String promt) {
+        Scanner sc = new  Scanner(System.in);
+        System.out.print(promt);
+        return sc.nextLine();
+    }
+
+    @Override
     public int getInt(String s) {
         Scanner sc = new  Scanner(System.in);
         System.out.print(s);
@@ -44,6 +51,17 @@ public class TerminalUserInterface implements IUserInterface {
                 return false;
             }
             answer = this.getString(prompt);
+        }
+    }
+
+    @Override
+    public String getStringWithDefault(String s, String defaultValue) {
+        String prompt = s + " (" + defaultValue + ")";
+        String newString = this.getStringOrEmpty(prompt);
+        if("".equalsIgnoreCase(newString)){
+            return defaultValue;
+        } else {
+            return  newString;
         }
     }
 }

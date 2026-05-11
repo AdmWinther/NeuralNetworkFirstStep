@@ -30,6 +30,8 @@ public class NewAIModelController implements IMenuController{
 
             userInterface.output("You are about to make a new AI model.");
 
+            String name = userInterface.getString("Please choose a name for your model: ");
+
             int numberOfLayers = userInterface.getInt("How many layers do you want the model to have? ");
             int[] layers = new int[numberOfLayers];
             userInterface.output("The first layer must have the same number of nodes as the input data.");
@@ -44,7 +46,7 @@ public class NewAIModelController implements IMenuController{
             for(int i = 1; i < numberOfLayers-1; i++) {
                 layers[i] = userInterface.getInt("How many nodes in layer " + i + "?");
             }
-            AiFactory factory = new AiFactory(layers);
+            AiFactory factory = new AiFactory(layers, name);
             IAI ai = factory.build();
             appState.setAI(ai);
         } catch (Exception e) {

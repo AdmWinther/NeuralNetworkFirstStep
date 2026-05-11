@@ -11,9 +11,15 @@ import java.util.Map;
 
 public class AiFactory implements IClassifierAIFactory {
     private final int[] layers;
+    private String newAiModelName;
     private float initialNodesBias;
 
     public AiFactory(int[] numberOfNodesPerLayer){
+        this.layers = numberOfNodesPerLayer;
+    }
+
+    public AiFactory(int[] numberOfNodesPerLayer, String name){
+        this.newAiModelName = name;
         this.layers = numberOfNodesPerLayer;
     }
 
@@ -56,6 +62,6 @@ public class AiFactory implements IClassifierAIFactory {
                 nodes.put(node.getCoordinate(), node);
             }
         }
-        return new AI(layers, nodes);
+        return new AI(layers, nodes, newAiModelName);
     }
 }

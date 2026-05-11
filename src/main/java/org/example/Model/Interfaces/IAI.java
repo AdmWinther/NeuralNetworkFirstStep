@@ -9,4 +9,6 @@ public interface IAI {
     public INode getNode(NodeCoordinate coordinate);
     public INode getNode(int i, int j);
     public int[] getLayers();
+    public String getName();
+    public void setName(String name);
 }

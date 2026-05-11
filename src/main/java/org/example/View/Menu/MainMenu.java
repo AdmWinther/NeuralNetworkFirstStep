@@ -16,26 +16,14 @@ public class MainMenu extends SubMenu {
     }
 
     public void build() {
-        SubMenu newModelMenu = new SubMenu("New Model");
-        MenuOption makeNewModel = new MenuOption("Make New Model", new NewAIModelController(userInterface));
-        MenuOption setTrainingData = new MenuOption("set Training Data", new SetTrainingDataController(userInterface));
-        MenuOption trainNewModel = new MenuOption("Train Model", new TrainModelController(userInterface));
-        MenuOption exitNewModelMenu = new MenuOption("Exit", new ExitMenuController(userInterface, this));
-        newModelMenu.add(makeNewModel);
-        newModelMenu.add(setTrainingData);
-        newModelMenu.add(trainNewModel);
-        newModelMenu.add(exitNewModelMenu);
-        this.add(newModelMenu);
+        SubMenu modelMenu = getModelMenu();
+        this.add(modelMenu);
 
-        MenuOption currentModelMenu = new MenuOption("Current Model Properties", new GetModelPropController(userInterface));
-        this.add(currentModelMenu);
-
-        MenuOption loadModel = new MenuOption("Load Model", null);
         MenuOption exitApplication = new MenuOption("Exit", new ExitApplicationController());
 
         SubMenu classify = new SubMenu("Classify");
         classify.add(new MenuOption("From Image", null));
-        classify.add(new MenuOption("From CSV", null));
+        classify.add(new MenuOption("From CSV", new ClassifyCsvFileController(userInterface)));
         MenuOption exitClassify = new MenuOption("Exit", new ExitMenuController(userInterface, this));
 
         SubMenu alaki = new SubMenu("Alaki");
@@ -47,9 +35,27 @@ public class MainMenu extends SubMenu {
 
         classify.add(exitClassify);
 
-        this.add(loadModel);
         this.add(classify);
         this.add(exitApplication);
+    }
+
+    private SubMenu getModelMenu() {
+        SubMenu newModelMenu = new SubMenu("Model");
+        MenuOption makeNewModel = new MenuOption("Make New Model", new NewAIModelController(userInterface));
+        MenuOption setTrainingData = new MenuOption("set Training Data", new SetTrainingDataController(userInterface));
+        MenuOption trainNewModel = new MenuOption("Train Model", new TrainModelController(userInterface));
+        MenuOption LoadModel = new MenuOption("Load A Model", new LoadModelController(userInterface));
+        MenuOption SaveModel = new MenuOption("Save Model", new SaveModelController(userInterface));
+        MenuOption currentModelProperties = new MenuOption("Current Model Properties", new GetModelPropController(userInterface));
+        MenuOption exitNewModelMenu = new MenuOption("Exit", new ExitMenuController(userInterface, this));
+        newModelMenu.add(makeNewModel);
+        newModelMenu.add(setTrainingData);
+        newModelMenu.add(trainNewModel);
+        newModelMenu.add(LoadModel);
+        newModelMenu.add(SaveModel);
+        newModelMenu.add(currentModelProperties);
+        newModelMenu.add(exitNewModelMenu);
+        return newModelMenu;
     }
 
     public void getNextAction(){

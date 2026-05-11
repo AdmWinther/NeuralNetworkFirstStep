@@ -14,7 +14,15 @@ public class GetModelPropController implements IMenuController {
 
     @Override
     public void execute(AppState appState) {
+        // If appState.getAI is null, inform the user no model is made yet.
+        if (appState.getAI() == null) {
+            userInterface.output("No model has been made or loaded yet.");
+            return;
+        }
+
         userInterface.output("Current Model Properties:");
+
+        userInterface.output("Name: " + appState.getAI().getName());
 
         userInterface.output("Layers:");
         this.userInterface.output(Arrays.toString(appState.getAI().getLayers()));

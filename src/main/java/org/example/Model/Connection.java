@@ -4,7 +4,7 @@ import org.example.Model.Interfaces.IConnection;
 import org.example.Model.Interfaces.INode;
 
 public class Connection implements IConnection{
-    private INode upstreamNode;
+    private transient INode upstreamNode;
     private NodeCoordinate upstreamNodeCoordinate;
     private float weight;
 

@@ -17,8 +17,14 @@ public class AI implements IAI {
         this.nodes = nodes;
     }
 
-    public void setName(String name){
+    public AI(int[] layers, Map<NodeCoordinate, Node> nodes, String name) {
+        this(layers, nodes);
         this.name = name;
+    }
+
+    // Getter for the nodes map, essential for deserialization re-wiring
+    public Map<NodeCoordinate, Node> getNodesMap() {
+        return nodes;
     }
 
     @Override
@@ -181,5 +187,15 @@ public class AI implements IAI {
     @Override
     public int[] getLayers() {
         return this.layers;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name= name;
     }
 }
