@@ -1,7 +1,6 @@
-package org.example.Model.Interfaces;
+package org.example.Model;
 
 import org.example.Model.ActivationFunction.IActivationFunction;
-import org.example.Model.NodeCoordinate;
 
 public interface INode {
     public float getValue();

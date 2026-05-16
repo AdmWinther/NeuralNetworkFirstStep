@@ -1,7 +1,6 @@
-package org.example.Model.Interfaces;
+package org.example.Model;
 
 import org.example.Model.Data.IData;
-import org.example.Model.NodeCoordinate;
 
 public interface IAI {
     public void train(IData[] trainingData);

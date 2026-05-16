@@ -1,8 +1,5 @@
 package org.example.Model;
 
-import org.example.Model.Interfaces.IConnection;
-import org.example.Model.Interfaces.INode;
-
 public class Connection implements IConnection{
     private transient INode upstreamNode;
     private NodeCoordinate upstreamNodeCoordinate;

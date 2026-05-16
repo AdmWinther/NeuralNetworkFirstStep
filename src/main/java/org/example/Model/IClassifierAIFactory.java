@@ -1,4 +1,4 @@
-package org.example.Model.Interfaces;
+package org.example.Model;
 
 public interface IClassifierAIFactory {
     public IClassifierAIFactory setInitialWeight(float initialWeight);

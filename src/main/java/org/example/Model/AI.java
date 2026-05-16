@@ -1,9 +1,6 @@
 package org.example.Model;
 
-import org.example.Model.Interfaces.IAI;
-import org.example.Model.Interfaces.IConnection;
 import org.example.Model.Data.IData;
-import org.example.Model.Interfaces.INode;
 
 import java.util.Map;
 

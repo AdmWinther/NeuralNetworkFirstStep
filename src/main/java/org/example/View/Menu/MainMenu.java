@@ -22,7 +22,7 @@ public class MainMenu extends SubMenu {
         MenuOption exitApplication = new MenuOption("Exit", new ExitApplicationController());
 
         SubMenu classify = new SubMenu("Classify");
-        classify.add(new MenuOption("From Image", null));
+        classify.add(new MenuOption("From PNG Image", new PNGImageClassifierController(userInterface)));
         classify.add(new MenuOption("From CSV", new ClassifyCsvFileController(userInterface)));
         MenuOption exitClassify = new MenuOption("Exit", new ExitMenuController(userInterface, this));
 
@@ -41,19 +41,25 @@ public class MainMenu extends SubMenu {
 
     private SubMenu getModelMenu() {
         SubMenu newModelMenu = new SubMenu("Model");
-        MenuOption makeNewModel = new MenuOption("Make New Model", new NewAIModelController(userInterface));
-        MenuOption setTrainingData = new MenuOption("set Training Data", new SetTrainingDataController(userInterface));
-        MenuOption trainNewModel = new MenuOption("Train Model", new TrainModelController(userInterface));
-        MenuOption LoadModel = new MenuOption("Load A Model", new LoadModelController(userInterface));
-        MenuOption SaveModel = new MenuOption("Save Model", new SaveModelController(userInterface));
+        MenuOption makeNewModel = new MenuOption("Make a new model", new NewAIModelController(userInterface));
+        MenuOption setTrainingData = new MenuOption("Set training data", new SetTrainingDataController(userInterface));
+        MenuOption trainNewModel = new MenuOption("Train the model", new TrainModelController(userInterface));
+        MenuOption testModel = new MenuOption("Test the model", new TestModelController(userInterface));
+        MenuOption LoadModel = new MenuOption("Load A model", new LoadModelController(userInterface));
+        MenuOption SaveModel = new MenuOption("Save the model", new SaveModelController(userInterface));
         MenuOption currentModelProperties = new MenuOption("Current Model Properties", new GetModelPropController(userInterface));
+
+        MenuOption WeighBiosVisualizer = new MenuOption("Weights & Biases Visualizer", new WeightBiosVisualizeController(userInterface));
+
         MenuOption exitNewModelMenu = new MenuOption("Exit", new ExitMenuController(userInterface, this));
         newModelMenu.add(makeNewModel);
         newModelMenu.add(setTrainingData);
         newModelMenu.add(trainNewModel);
+        newModelMenu.add(testModel);
         newModelMenu.add(LoadModel);
         newModelMenu.add(SaveModel);
         newModelMenu.add(currentModelProperties);
+        newModelMenu.add(WeighBiosVisualizer);
         newModelMenu.add(exitNewModelMenu);
         return newModelMenu;
     }

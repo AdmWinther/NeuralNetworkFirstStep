@@ -3,9 +3,9 @@ package org.example.Model.Tools;
 import org.example.Model.AI;
 import org.example.Model.ActivationFunction.IActivationFunction;
 import org.example.Model.Connection;
-import org.example.Model.Interfaces.IAI;
-import org.example.Model.Interfaces.IConnection;
-import org.example.Model.Interfaces.INode;
+import org.example.Model.IAI;
+import org.example.Model.IConnection;
+import org.example.Model.INode;
 import org.example.Model.Node;
 import org.example.Model.NodeCoordinate;
 

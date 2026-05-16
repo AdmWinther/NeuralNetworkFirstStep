@@ -1,6 +1,6 @@
 package org.example.Model.Tools;
 
-import org.example.Model.Interfaces.IJsonableConnection;
+import org.example.Model.IJsonableConnection;
 
 public class JsonableConnection implements IJsonableConnection {
     private int upstreamNodeLayer;

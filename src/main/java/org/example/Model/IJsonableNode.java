@@ -1,4 +1,4 @@
-package org.example.Model.Interfaces;
+package org.example.Model;
 
 import org.example.Model.ActivationFunction.IActivationFunction;
 import org.example.Model.Tools.JsonableConnection;

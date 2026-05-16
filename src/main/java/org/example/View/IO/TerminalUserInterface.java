@@ -64,4 +64,16 @@ public class TerminalUserInterface implements IUserInterface {
             return  newString;
         }
     }
+
+    @Override
+    public boolean getYesNoAcceptsEmpty(String prompt) {
+        String promptExtended = prompt + "(Yes)";
+        String answer = this.getStringOrEmpty(promptExtended);
+        while(true) {
+            if(answer.equalsIgnoreCase("")) {
+                return true;
+            }
+            this.getYesNo(prompt);
+        }
+    }
 }

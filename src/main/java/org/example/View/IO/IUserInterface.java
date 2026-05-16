@@ -11,4 +11,6 @@ public interface IUserInterface {
     boolean getYesNo(String prompt);
 
     String getStringWithDefaultAcceptEmpty(String s, String name);
+
+    boolean getYesNoAcceptsEmpty(String s);
 }

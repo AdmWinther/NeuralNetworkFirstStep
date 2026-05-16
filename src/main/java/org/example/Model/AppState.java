@@ -1,12 +1,11 @@
 package org.example.Model;
 
 import org.example.Model.Data.IData;
-import org.example.Model.Interfaces.IAI;
-import org.example.Model.Interfaces.IAppState;
 
 public class AppState implements IAppState {
     private IAI ai;
     private IData[] trainingData;
+    private IData[] testData;
     private boolean continueRunning = true;
 
 
@@ -58,5 +57,15 @@ public class AppState implements IAppState {
     @Override
     public IData[] getTrainingData() {
         return this.trainingData;
+    }
+
+    @Override
+    public void setTestData(IData[] data) {
+        this.testData = data;
+    }
+
+    @Override
+    public IData[] getTestData() {
+        return this.testData;
     }
 }

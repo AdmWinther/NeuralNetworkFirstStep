@@ -2,9 +2,8 @@ package org.example.Controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import org.example.Model.AI;
 import org.example.Model.AppState;
-import org.example.Model.Interfaces.IAI;
+import org.example.Model.IAI;
 import org.example.Model.Tools.AiJsonAdapter;
 import org.example.Model.Tools.JsonableAI;
 import org.example.View.IO.IUserInterface;

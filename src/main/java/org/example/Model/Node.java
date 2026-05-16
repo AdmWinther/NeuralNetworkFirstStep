@@ -1,8 +1,6 @@
 package org.example.Model;
 
 import org.example.Model.ActivationFunction.IActivationFunction;
-import org.example.Model.Interfaces.IConnection;
-import org.example.Model.Interfaces.INode;
 
 public class Node implements INode {
     private float value;

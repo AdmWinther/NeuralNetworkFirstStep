@@ -1,6 +1,4 @@
-package org.example.Model.Interfaces;
-
-import org.example.Model.NodeCoordinate;
+package org.example.Model;
 
 public interface IConnection {
     public NodeCoordinate getUpstreamNodeCoordinate();

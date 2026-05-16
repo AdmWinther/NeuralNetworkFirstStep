@@ -3,8 +3,6 @@ package org.example.Model;
 import org.example.Model.ActivationFunction.ActivationFunctionFactory;
 import org.example.Model.ActivationFunction.EnumActivationFunction;
 import org.example.Model.ActivationFunction.IActivationFunction;
-import org.example.Model.Interfaces.IClassifierAIFactory;
-import org.example.Model.Interfaces.IConnection;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,6 +40,7 @@ public class AiFactory implements IClassifierAIFactory {
         for(int i = 0; i < layers.length; i++){
             for(int j = 0; j < layers[i]; j++){
                 // Use the factory here, and pass the interface to the node
+                //Todo: Make it possible that the user choose the Activation Function.
                 IActivationFunction activationFunction = activationFunctionFactory.build(EnumActivationFunction.ReLU);
 
                 Node node = new Node(new NodeCoordinate(i, j), initialNodesBias, activationFunction);

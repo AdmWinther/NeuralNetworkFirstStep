@@ -1,4 +1,4 @@
-package org.example.Model.Interfaces;
+package org.example.Model;
 
 import org.example.Model.Data.IData;
 
@@ -12,4 +12,8 @@ public interface IAppState {
     public boolean isTrainingDataSet();
     public void setTrainingData(IData[] iData);
     public IData[] getTrainingData();
+
+    void setTestData(IData[] iData);
+
+    IData[] getTestData();
 }

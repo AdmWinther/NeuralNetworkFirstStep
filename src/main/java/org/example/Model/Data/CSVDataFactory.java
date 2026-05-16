@@ -1,11 +1,11 @@
 package org.example.Model.Data;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -81,5 +81,43 @@ public class CSVDataFactory implements IDataFactory {
         // For now, let's assume there's a 'Data' class that implements IData
         // and has a constructor like Data(float[] values, int label).
         return new Data(pixels, label);
+    }
+
+    public IData convertBMP2Data(String path){
+        File file = new File(path);
+        try{
+            BufferedImage image = ImageIO.read(file);
+
+            //TODO: read the image size from config parameters instead of hard coded value.
+            // Ensure the image is 28x28
+            if (image.getWidth() != 28 || image.getHeight() != 28) {
+                throw new IllegalArgumentException("The file is not 28x28 pixel.");
+            }
+            float[] pixels = new float[imagePixelCount];
+            int pixeilIndex = 0;
+
+
+            for (int y = 0; y < image.getHeight(); y++) {
+                for (int x = 0; x < image.getWidth(); x++) {
+                    // Get the RGB value
+                    int pixel = image.getRGB(x, y);
+
+                    // Extract the Red component (0-255) as our grayscale value
+                    // In a true grayscale image, R, G, and B are identical.
+                    int grayValue = (pixel >> 16) & 0xff;
+
+                    grayValue = 255 - grayValue;
+                    pixels[pixeilIndex] = grayValue / 255.0f;
+                    //pixels[pixeilIndex] = pixel / 255.0f;
+                    pixeilIndex++;
+
+
+                }
+            }
+            return new Data(pixels);
+
+        } catch (IOException e) {
+            throw new RuntimeException("Could not read the file. Make sure file exists and has correct format.");
+        }
     }
 }

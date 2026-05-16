@@ -1,7 +1,7 @@
 package org.example.Controller;
 
 import org.example.Model.AiFactory;
-import org.example.Model.Interfaces.IAI;
+import org.example.Model.IAI;
 import org.example.Model.AppState;
 import org.example.View.IO.IUserInterface;
 
