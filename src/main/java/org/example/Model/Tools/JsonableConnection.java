@@ -13,23 +13,29 @@ public class JsonableConnection implements IJsonableConnection {
         this.connectionWeight = connectionWeight;
     }
 
+    @Override
     public int getUpstreamNodeLayer() {
         return upstreamNodeLayer;
     }
+    @Override
     public void setUpstreamNodeLayer(int upstreamNodeLayer) {
         this.upstreamNodeLayer = upstreamNodeLayer;
     }
 
+    @Override
     public int getUpstreamNodeIndex() {
         return upstreamNodeIndex;
     }
+    @Override
     public void setUpstreamNodeIndex(int upstreamNodeIndex) {
         this.upstreamNodeIndex = upstreamNodeIndex;
     }
 
+    @Override
     public float getConnectionWeight() {
         return connectionWeight;
     }
+    @Override
     public void setConnectionWeight(float connectionWeight) {
         this.connectionWeight = connectionWeight;
     }
