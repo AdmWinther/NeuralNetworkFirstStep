@@ -6,11 +6,11 @@ import org.example.View.IO.IUserInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public non-sealed class SubMenu extends IMenuComponent {
-    List<IMenuComponent> subMenuElements;
+public non-sealed class SubMenu extends AbsMenuComponent {
+    List<AbsMenuComponent> subMenuElements;
 
     public SubMenu(String name){
-        this.subMenuElements = new ArrayList<IMenuComponent>();
+        this.subMenuElements = new ArrayList<AbsMenuComponent>();
         if(!name.endsWith(" >")) name = name + " >";
         super(name);
     }
@@ -21,7 +21,7 @@ public non-sealed class SubMenu extends IMenuComponent {
     }
 
 
-    public SubMenu add(IMenuComponent element) {
+    public SubMenu add(AbsMenuComponent element) {
         this.subMenuElements.add(element);
         return this;
     }
@@ -30,7 +30,7 @@ public non-sealed class SubMenu extends IMenuComponent {
         StringBuilder sb = new StringBuilder();
         sb.append(this.getName()).append("\n");
         int counter = 0;
-        for (IMenuComponent element : this.subMenuElements) {
+        for (AbsMenuComponent element : this.subMenuElements) {
             sb.append(String.valueOf(++counter)).append(" - ").append(element.getName());
             sb.append("\n");
         }

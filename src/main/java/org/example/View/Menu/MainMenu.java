@@ -26,13 +26,6 @@ public class MainMenu extends SubMenu {
         classify.add(new MenuOption("From CSV", new ClassifyCsvFileController(userInterface)));
         MenuOption exitClassify = new MenuOption("Exit", new ExitMenuController(userInterface, this));
 
-        SubMenu alaki = new SubMenu("Alaki");
-        alaki.add(new MenuOption("pooch", null));
-        alaki.add(new MenuOption("Hogo", null));
-        MenuOption exitAlaki = new MenuOption("Exit", new ExitMenuController(userInterface, classify));
-        classify.add(alaki);
-        alaki.add(exitAlaki);
-
         classify.add(exitClassify);
 
         this.add(classify);

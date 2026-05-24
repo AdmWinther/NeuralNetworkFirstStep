@@ -4,7 +4,7 @@ import org.example.Controller.IMenuController;
 import org.example.Model.AppState;
 import org.example.View.IO.IUserInterface;
 
-public final class MenuOption extends IMenuComponent {
+public final class MenuOption extends AbsMenuComponent {
     private final IMenuController controller;
 
     public MenuOption(String name, IMenuController controller){
