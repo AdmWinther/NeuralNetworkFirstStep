@@ -179,12 +179,21 @@ mvn compile
 mvn exec:java -Dexec.mainClass="org.example.App"
 ```
 
+### Create a new model
+
+Make your model by using 1-1 from menu. The code will ask you the number of layers, for start, I suggest you use 3 layers to avoid overloading your computer.
+Then set the training data by 1-2 from the menu. If you place your MNIST training data set at the default address, it wluld be easier for you.
+Note that so far you only introduced the training data and you have not trained the model yet. Train the model by using 1-3 from the main menu.
+Wain until training is finished. By default the model is trained by iterating 10 rounds on the training data, if you want finer model with less resedues, you can run the training another time.
+After model is trained, it can be used for classifying an image. use any of the options under item number 2 of the main menu for classifying.
+You can also use 1-4 to see the percentage that the model can guess the right data.
+It is possible to save the trained data to avoid training everytime you open the program, it is done by 1-6. after you saved a model, you can load it by 1-5 in the main menu.
+
 ### Classify a custom image
 
 Place a 28×28 greyscale PNG in the project root, then use the menu:
 `Classify → From PNG Image`
 
-Sample test images (`P10.png`, `P30.png`, …) are included in the repository root.
 
 ---
 
