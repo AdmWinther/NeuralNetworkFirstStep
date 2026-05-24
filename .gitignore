@@ -14,6 +14,7 @@ target/
 *.ipr
 *.json
 *.csv
+*.png
 
 ### Eclipse ###
 .apt_generated
