@@ -53,8 +53,8 @@ All layers communicate exclusively through interfaces, which means:
 | `IAppState` | `AppState` | Model — shared application state |
 | `IActivationFunction` | `ReLU`, `Sigmoid`, `Tanh`, `SoftSign`, `Step` | Model — activation |
 | `IClassifierAIFactory` | `AiFactory` | Model — factory + builder |
-| `IJsonableConnection` | `JsonableConnection` | Model/Tools — serialisation DTO |
-| `IJsonableNode` | `JsonableNode` | Model/Tools — serialisation DTO |
+| `IJsonableConnection` | `JsonableConnection` | Model/Tools — serialisation Data Transfer Object(DTO) |
+| `IJsonableNode` | `JsonableNode` | Model/Tools — serialisation Data Transfer Object(DTO) |
 | `IAiJsonAdapter` | `AiJsonAdapter` | Model/Tools — Gson adapter |
 | `IUserInterface` | `TerminalUserInterface` | View — terminal I/O |
 | `IMenuController` | `NewAIModelController`, `TrainModelController`, … | Controller |
